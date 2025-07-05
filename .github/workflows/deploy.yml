@@ -24,7 +24,7 @@ jobs:
       run: npm ci
       
     - name: Build application
-      run: npm run build:github-pages
+      run: ng build --configuration production --output-path=docs --base-href=/avtech/
       
     - name: Create root index.html and 404.html
       run: |
@@ -35,11 +35,8 @@ jobs:
         # Copy all browser assets to root level
         cp -r docs/browser/* docs/
         
-        # Update paths in HTML files to work with GitHub Pages
-        sed -i 's|href="browser/favicon.ico"|href="favicon.ico"|g' docs/index.html docs/404.html
-        sed -i 's|href="browser/styles-|href="styles-|g' docs/index.html docs/404.html
-        sed -i 's|src="browser/polyfills-|src="polyfills-|g' docs/index.html docs/404.html
-        sed -i 's|src="browser/main-|src="main-|g' docs/index.html docs/404.html
+        # Remove browser folder to avoid duplication
+        rm -rf docs/browser
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
