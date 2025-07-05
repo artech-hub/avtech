@@ -1,0 +1,15 @@
+/* App Component Layout */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+/* Ensure footer stays at bottom */
+app-footer {
+  margin-top: auto;
+}
