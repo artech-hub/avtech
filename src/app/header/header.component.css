@@ -50,6 +50,7 @@
   line-height: 1.2;
 }
 
+/* Desktop Navigation */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -88,6 +89,7 @@
 .header-actions {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .download-btn {
@@ -109,13 +111,151 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-line.active:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.active:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background: linear-gradient(135deg, #5DADE2 0%, #3498DB 100%);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav-content {
+  padding: 2rem;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 1rem;
+}
+
+.mobile-nav-link:last-of-type {
+  border-bottom: none;
+}
+
+.mobile-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-links {
+  .desktop-nav {
     display: none;
   }
   
+  .desktop-btn {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
   .header-container {
-    padding: 0 1rem;
+    padding: 0;
+  }
+  
+  .avtech-header {
+    padding: 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  
+  .tagline {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  .tagline {
+    font-size: 0.65rem;
+  }
+  
+  .mobile-nav {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .mobile-nav.active {
+    right: 0;
   }
 }

@@ -8,19 +8,39 @@
       </div>
     </div>
 
-    <nav class="nav-links">
+    <!-- Desktop Navigation -->
+    <nav class="nav-links desktop-nav">
       <a routerLink="/" class="nav-link">Home</a>
       <a routerLink="/about" class="nav-link">About</a>
-      <a routerLink="/services" class="nav-link">Service</a>
-      <a routerLink="/blog" class="nav-link">Boxsnakola</a>
-      <a routerLink="/career" class="nav-link">Pricing</a>
-      <a routerLink="/contact" class="nav-link">Team</a>
+      <a routerLink="/services" class="nav-link">Services</a>
+      <a routerLink="/career" class="nav-link">Career</a>
       <a routerLink="/blog" class="nav-link">Blog</a>
       <a routerLink="/contact" class="nav-link">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <button class="download-btn">Download</button>
+      <button class="download-btn desktop-btn">Download</button>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+  <nav class="mobile-nav" [class.active]="isMobileMenuOpen">
+    <div class="mobile-nav-content">
+      <a routerLink="/" class="mobile-nav-link" (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/about" class="mobile-nav-link" (click)="closeMobileMenu()">About</a>
+      <a routerLink="/services" class="mobile-nav-link" (click)="closeMobileMenu()">Services</a>
+      <a routerLink="/career" class="mobile-nav-link" (click)="closeMobileMenu()">Career</a>
+      <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()">Blog</a>
+      <a routerLink="/contact" class="mobile-nav-link" (click)="closeMobileMenu()">Contact</a>
+      <button class="download-btn mobile-btn" (click)="closeMobileMenu()">Download</button>
+    </div>
+  </nav>
 </header>
