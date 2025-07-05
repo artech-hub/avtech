@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build application
+      run: npm run build:github-pages
+      
+    - name: Create root index.html and 404.html
+      run: |
+        # Copy browser files to root level for GitHub Pages
+        cp docs/browser/index.html docs/index.html
+        cp docs/browser/index.html docs/404.html
+        
+        # Copy all browser assets to root level
+        cp -r docs/browser/* docs/
+        
+        # Update paths in HTML files to work with GitHub Pages
+        sed -i 's|href="browser/favicon.ico"|href="favicon.ico"|g' docs/index.html docs/404.html
+        sed -i 's|href="browser/styles-|href="styles-|g' docs/index.html docs/404.html
+        sed -i 's|src="browser/polyfills-|src="polyfills-|g' docs/index.html docs/404.html
+        sed -i 's|src="browser/main-|src="main-|g' docs/index.html docs/404.html
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        cname: # Add your custom domain here if you have one

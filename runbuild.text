@@ -1,0 +1,1 @@
+ng run avtech-company:build:production --output-path=docs --base-href=/avtech/

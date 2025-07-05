@@ -1,0 +1,125 @@
+/* Original styles - keeping for reference */
+/*
+.avtech-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #002d62;
+  color: white;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+      height: 50px;
+}
+
+
+.logo-container {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: 120px;
+  width: 120px; 
+  object-fit: contain;
+  border-radius: 0px;
+} */
+
+/* Active styles */
+.avtech-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #002d62 0%, #0057b8 100%);
+  color: white;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(100%) contrast(120%); /* Helps logo visibility */
+}
+
+.logo-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #ccc;
+  margin: 2px 0 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links span {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links span:hover {
+  color: #00bfff;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  background-color: #0e68ca;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #335b89;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
