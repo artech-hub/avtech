@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 
 export class HeaderComponent {
   isMobileMenuOpen = false;
+  isDropdownOpen = false;
+  isMobileDropdownOpen = false;
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -20,5 +22,18 @@ export class HeaderComponent {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+    this.isMobileDropdownOpen = false;
+  }
+
+  showDropdown() {
+    this.isDropdownOpen = true;
+  }
+
+  hideDropdown() {
+    this.isDropdownOpen = false;
+  }
+
+  toggleMobileDropdown() {
+    this.isMobileDropdownOpen = !this.isMobileDropdownOpen;
   }
 }

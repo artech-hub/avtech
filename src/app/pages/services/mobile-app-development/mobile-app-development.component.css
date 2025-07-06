@@ -1,0 +1,487 @@
+.service-detail-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.service-hero {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 8rem 0 4rem;
+  text-align: center;
+}
+
+.service-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.service-content {
+  padding: 4rem 0;
+}
+
+.service-overview {
+  margin-bottom: 4rem;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.overview-text h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.overview-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 2rem;
+  color: #555;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.overview-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-mockup {
+  perspective: 1000px;
+}
+
+.phone-frame {
+  width: 300px;
+  height: 600px;
+  background: #2c3e50;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: rotateY(-15deg) rotateX(10deg);
+  transition: transform 0.3s ease;
+}
+
+.phone-frame:hover {
+  transform: rotateY(-10deg) rotateX(5deg);
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 1rem;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.app-content {
+  padding: 1.5rem;
+}
+
+.app-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card-title {
+  height: 12px;
+  background: #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+
+.card-subtitle {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  width: 60%;
+}
+
+.app-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.tab {
+  width: 60px;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+.tab.active {
+  background: #e74c3c;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+}
+
+.platforms-section {
+  background: white;
+  padding: 4rem 0;
+  border-radius: 12px;
+  margin-bottom: 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.platform-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background: #f8f9fa;
+  transition: transform 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-5px);
+}
+
+.platform-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.platform-icon.ios {
+  background: linear-gradient(135deg, #007AFF 0%, #005CBF 100%);
+  color: white;
+}
+
+.platform-icon.android {
+  background: linear-gradient(135deg, #3DDC84 0%, #2CB86A 100%);
+  color: white;
+}
+
+.platform-icon.cross-platform {
+  background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+  color: white;
+}
+
+.platform-card h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.platform-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.technologies-section {
+  background: white;
+  padding: 4rem 0;
+  border-radius: 12px;
+  margin-bottom: 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.tech-category {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #e74c3c;
+  transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.tech-category h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.tech-tag:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.process-section {
+  margin-bottom: 4rem;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.process-step h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.process-step p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 4rem 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.cta-btn.primary {
+  background: white;
+  color: #e74c3c;
+}
+
+.cta-btn.primary:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+  background: white;
+  color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .service-title {
+    font-size: 2rem;
+  }
+  
+  .service-subtitle {
+    font-size: 1rem;
+  }
+  
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .overview-text h2 {
+    font-size: 2rem;
+  }
+  
+  .phone-frame {
+    width: 250px;
+    height: 500px;
+    transform: none;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tech-category {
+    padding: 1.5rem;
+  }
+  
+  .tech-category h3 {
+    font-size: 1.5rem;
+  }
+  
+  .tech-tags {
+    gap: 0.6rem;
+  }
+  
+  .tech-tag {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

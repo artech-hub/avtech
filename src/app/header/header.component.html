@@ -12,14 +12,43 @@
     <nav class="nav-links desktop-nav">
       <a routerLink="/" class="nav-link">Home</a>
       <a routerLink="/about" class="nav-link">About</a>
-      <a routerLink="/services" class="nav-link">Services</a>
+      <div class="dropdown" (mouseenter)="showDropdown()" (mouseleave)="hideDropdown()">
+        <a routerLink="/services" class="nav-link dropdown-toggle">
+          Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white" class="dropdown-icon">
+            <path d="M7 10L12 15L17 10H7Z"/>
+          </svg>
+        </a>
+        <div class="dropdown-menu" [class.show]="isDropdownOpen">
+          <a routerLink="/services/web-development" class="dropdown-item">Web Development</a>
+          <a routerLink="/services/mobile-app-development" class="dropdown-item">Mobile App Development</a>
+          <a routerLink="/services/cloud-solutions" class="dropdown-item">Cloud Solutions</a>
+          <a routerLink="/services/digital-marketing" class="dropdown-item">Digital Marketing</a>
+          <a routerLink="/services/ui-ux-design" class="dropdown-item">UI/UX Design</a>
+          <a routerLink="/services/consulting" class="dropdown-item">Consulting</a>
+        </div>
+      </div>
       <a routerLink="/career" class="nav-link">Career</a>
       <a routerLink="/blog" class="nav-link">Blog</a>
       <a routerLink="/contact" class="nav-link">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <button class="download-btn desktop-btn">Download</button>
+      <!-- Contact Information -->
+      <div class="contact-info desktop-contact">
+        <div class="contact-item">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <a href="tel:+919793134372" class="contact-link">+91 9793134372</a>
+        </div>
+        <div class="contact-item">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <a href="mailto:artech.info7238&#64;gmail.com" class="contact-link">artech.info7238&#64;gmail.com</a>
+        </div>
+      </div>
       
       <!-- Mobile Menu Button -->
       <button class="mobile-menu-btn" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
@@ -36,11 +65,42 @@
     <div class="mobile-nav-content">
       <a routerLink="/" class="mobile-nav-link" (click)="closeMobileMenu()">Home</a>
       <a routerLink="/about" class="mobile-nav-link" (click)="closeMobileMenu()">About</a>
-      <a routerLink="/services" class="mobile-nav-link" (click)="closeMobileMenu()">Services</a>
+      <div class="mobile-dropdown">
+        <button class="mobile-nav-link mobile-dropdown-toggle" (click)="toggleMobileDropdown()">
+          Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white" class="mobile-dropdown-icon" [class.rotated]="isMobileDropdownOpen">
+            <path d="M7 10L12 15L17 10H7Z"/>
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu" [class.show]="isMobileDropdownOpen">
+          <a routerLink="/services" class="mobile-dropdown-item" (click)="closeMobileMenu()">All Services</a>
+          <a routerLink="/services/web-development" class="mobile-dropdown-item" (click)="closeMobileMenu()">Web Development</a>
+          <a routerLink="/services/mobile-app-development" class="mobile-dropdown-item" (click)="closeMobileMenu()">Mobile App Development</a>
+          <a routerLink="/services/cloud-solutions" class="mobile-dropdown-item" (click)="closeMobileMenu()">Cloud Solutions</a>
+          <a routerLink="/services/digital-marketing" class="mobile-dropdown-item" (click)="closeMobileMenu()">Digital Marketing</a>
+          <a routerLink="/services/ui-ux-design" class="mobile-dropdown-item" (click)="closeMobileMenu()">UI/UX Design</a>
+          <a routerLink="/services/consulting" class="mobile-dropdown-item" (click)="closeMobileMenu()">Consulting</a>
+        </div>
+      </div>
       <a routerLink="/career" class="mobile-nav-link" (click)="closeMobileMenu()">Career</a>
       <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()">Blog</a>
       <a routerLink="/contact" class="mobile-nav-link" (click)="closeMobileMenu()">Contact</a>
-      <button class="download-btn mobile-btn" (click)="closeMobileMenu()">Download</button>
+      
+      <!-- Mobile Contact Info -->
+      <div class="mobile-contact-info">
+        <div class="mobile-contact-item">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <a href="tel:+919793134372" class="mobile-contact-link">+91 9793134372</a>
+        </div>
+        <div class="mobile-contact-item">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <a href="mailto:artech.info7238&#64;gmail.com" class="mobile-contact-link">artech.info7238&#64;gmail.com</a>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
