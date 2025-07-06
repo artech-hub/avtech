@@ -1,1 +1,8 @@
-ng run avtech-company:build:production --output-path=docs --base-href=/avtech/
+Remove-Item -Recurse -Force "c:\Users\averma148\OneDrive - MetLife\Documents\Angular_project\avtech\docs" -ErrorAction SilentlyContinue
+if (Test-Path "c:\Users\averma148\OneDrive - MetLife\Documents\Angular_project\avtech\docs") { Remove-Item -Recurse -Force "c:\Users\averma148\OneDrive - MetLife\Documents\Angular_project\avtech\docs" }
+ng build --configuration=production --output-path=docs --base-href=/avtech/
+
+
+
+
+npm run build:github-pages
