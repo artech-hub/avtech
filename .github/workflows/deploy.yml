@@ -28,12 +28,28 @@ jobs:
       
     - name: Create root index.html and 404.html
       run: |
+        # Backup important files
+        cp docs/CNAME docs/CNAME.backup || true
+        cp docs/robots.txt docs/robots.txt.backup || true
+        cp docs/sitemap.xml docs/sitemap.xml.backup || true
+        
         # Copy browser files to root level for GitHub Pages
         cp docs/browser/index.html docs/index.html
         cp docs/browser/index.html docs/404.html
         
         # Copy all browser assets to root level
         cp -r docs/browser/* docs/
+        
+        # Create .nojekyll file
+        touch docs/.nojekyll
+        
+        # Restore important files
+        cp docs/CNAME.backup docs/CNAME || echo "avtechcompany.in" > docs/CNAME
+        cp docs/robots.txt.backup docs/robots.txt || echo -e "User-agent: *\nAllow: /\n\nSitemap: https://avtechcompany.in/sitemap.xml" > docs/robots.txt
+        cp docs/sitemap.xml.backup docs/sitemap.xml || echo -e "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://avtechcompany.in/</loc>\n    <lastmod>2025-01-07</lastmod>\n    <priority>1.0</priority>\n  </url>\n</urlset>" > docs/sitemap.xml
+        
+        # Clean up backup files
+        rm -f docs/*.backup
         
         # Remove browser folder to avoid duplication
         rm -rf docs/browser
@@ -44,4 +60,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
-        cname: # Add your custom domain here if you have one
+        cname: avtechcompany.in
