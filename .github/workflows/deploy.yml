@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   build-and-deploy:
@@ -24,39 +23,48 @@ jobs:
       run: npm ci
       
     - name: Build application
-      run: ng build --configuration production --output-path=docs --base-href=/
+      run: npm run build:ci
       
-    - name: Create root index.html and 404.html
+    - name: Setup GitHub Pages files
       run: |
-        # Backup important files
-        cp docs/CNAME docs/CNAME.backup || true
-        cp docs/robots.txt docs/robots.txt.backup || true
-        cp docs/sitemap.xml docs/sitemap.xml.backup || true
+        echo "Setting up GitHub Pages structure..."
         
-        # Copy browser files to root level for GitHub Pages
-        cp docs/browser/index.html docs/index.html
-        cp docs/browser/index.html docs/404.html
+        # Handle Angular 17+ browser subfolder structure
+        if [ -d "docs/browser" ]; then
+          echo "Moving files from browser subfolder..."
+          cp -r docs/browser/* docs/
+          rm -rf docs/browser
+        fi
         
-        # Copy all browser assets to root level
-        cp -r docs/browser/* docs/
+        # Ensure required files exist
+        if [ ! -f "docs/index.html" ]; then
+          echo "ERROR: index.html not found after build"
+          ls -la docs/
+          exit 1
+        fi
         
-        # Create .nojekyll file
+        # Create 404.html from index.html for SPA routing (only if not exists)
+        if [ ! -f "docs/404.html" ]; then
+          cp docs/index.html docs/404.html
+          echo "Created 404.html for SPA routing"
+        else
+          echo "Using existing custom 404.html"
+        fi
+        
+        # Ensure .nojekyll exists
         touch docs/.nojekyll
         
-        # Restore important files
-        cp docs/CNAME.backup docs/CNAME || echo "avtechcompany.in" > docs/CNAME
-        cp docs/robots.txt.backup docs/robots.txt || echo -e "User-agent: *\nAllow: /\n\nSitemap: https://avtechcompany.in/sitemap.xml" > docs/robots.txt
-        cp docs/sitemap.xml.backup docs/sitemap.xml || echo -e "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://avtechcompany.in/</loc>\n    <lastmod>2025-01-07</lastmod>\n    <priority>1.0</priority>\n  </url>\n</urlset>" > docs/sitemap.xml
+        # Ensure CNAME exists for custom domain
+        if [ ! -f "docs/CNAME" ]; then
+          echo "avtechcompany.in" > docs/CNAME
+        fi
         
-        # Clean up backup files
-        rm -f docs/*.backup
-        
-        # Remove browser folder to avoid duplication
-        rm -rf docs/browser
+        echo "Final build structure:"
+        ls -la docs/
       
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs

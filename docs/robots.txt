@@ -1,18 +1,19 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-# Sitemap
+# Important pages
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /blog
+Allow: /career
+
+# Sitemap location
 Sitemap: https://avtechcompany.in/sitemap.xml
 
-# Security
-User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: /config/
-Disallow: /logs/
-Disallow: /backup/
-Disallow: /database/
-Disallow: /api/internal/
-Disallow: /temp/
-Disallow: /*.log$
-Disallow: /*.tmp$
+# Block unwanted bots
+User-agent: BadBot
+Disallow: /
+
+# Common crawl delays
+Crawl-delay: 1
