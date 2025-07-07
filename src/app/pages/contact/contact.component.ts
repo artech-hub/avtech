@@ -40,7 +40,7 @@ export class ContactComponent {
       
       // Create email data
       const emailData = {
-        to: 'artech.info7238@gmail.com',
+        to: 'arvind.verma@avtechcompany.in',
         subject: `New Contact Form Submission from ${formData.name}`,
         html: this.emailService.formatContactFormEmail(formData),
         from_name: formData.name,

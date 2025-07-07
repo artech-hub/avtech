@@ -9,7 +9,7 @@ The contact form is now fully functional with:
 - Loading states
 - Success/error messages
 - Email formatting
-- All form data will be sent to: `artech.info7238@gmail.com`
+- All form data will be sent to: `arvind.verma@avtechcompany.in`
 
 ## Setup Options
 
@@ -30,7 +30,7 @@ EmailJS allows you to send emails directly from the frontend without a backend s
      ```
      Subject: {{subject}}
      From: {{from_name}} <{{from_email}}>
-     To: artech.info7238@gmail.com
+     To: arvind.verma@avtechcompany.in
      
      Content:
      {{{message_html}}}
