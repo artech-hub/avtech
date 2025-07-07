@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { SeoService } from '../../services/seo.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-blog',
@@ -7,11 +6,6 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent {
 
-  constructor(private seoService: SeoService) { }
-
-  ngOnInit() {
-    this.seoService.setSEOData('blog');
-  }
 }

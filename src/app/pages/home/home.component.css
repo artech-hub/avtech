@@ -86,19 +86,6 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* Hero Keywords Section */
-.hero-keywords {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
-}
-
-.hero-keywords span {
-  color: #5DADE2;
-  font-weight: 600;
-}
-
 /* Dashboard Mockup */
 .hero-image {
   position: relative;

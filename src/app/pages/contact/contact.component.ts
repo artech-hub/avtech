@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
-import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   contactForm: FormGroup;
   isSubmitting = false;
   submitMessage = '';
@@ -18,8 +17,7 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
-    private emailService: EmailService,
-    private seoService: SeoService
+    private emailService: EmailService
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -31,10 +29,6 @@ export class ContactComponent implements OnInit {
       timeline: [''],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
-  }
-
-  ngOnInit() {
-    this.seoService.setSEOData('contact');
   }
 
   onSubmit() {
