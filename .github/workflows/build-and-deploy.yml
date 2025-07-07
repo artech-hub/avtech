@@ -1,0 +1,58 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build application for GitHub Pages
+      run: |
+        # Build the application using npm script
+        npm run build -- --configuration production --output-path=docs --base-href=/
+        
+        # Handle Angular 17+ browser subfolder structure
+        if [ -d "docs/browser" ]; then
+          echo "Moving files from browser subfolder..."
+          cp -r docs/browser/* docs/
+          rm -rf docs/browser
+        fi
+        
+        # Create 404.html from index.html for SPA routing
+        if [ -f "docs/index.html" ]; then
+          cp docs/index.html docs/404.html
+        fi
+        
+        # Create .nojekyll file to bypass Jekyll processing
+        touch docs/.nojekyll
+        
+        # Ensure CNAME file exists for custom domain
+        echo "avtechcompany.in" > docs/CNAME
+        
+        # List the contents to verify
+        ls -la docs/
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        cname: avtechcompany.in
