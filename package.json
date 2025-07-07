@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:github-pages": "ng build --configuration=production --output-path=docs --base-href=/avtech/ && powershell -Command \"Copy-Item -Recurse -Force 'docs/browser/*' 'docs/'; Copy-Item 'docs/index.html' 'docs/404.html'; New-Item -ItemType File -Path 'docs/.nojekyll' -Force; if(Test-Path 'docs/CNAME') { Copy-Item 'docs/CNAME' 'docs/CNAME.backup' }; if(Test-Path 'docs/robots.txt') { Copy-Item 'docs/robots.txt' 'docs/robots.backup' }; if(Test-Path 'docs/sitemap.xml') { Copy-Item 'docs/sitemap.xml' 'docs/sitemap.backup' }\"",
     "build:custom-domain": "powershell -Command \"./build-custom-domain.ps1 -Domain avtechcompany.in\"",
+    "build:seo": "powershell -Command \"./build-seo-optimized.ps1 -Domain avtechcompany.in\"",
     "build:domain": "powershell -Command \"./build-custom-domain.ps1 -Domain\"",
     "serve:docs": "node serve-docs.js",
     "watch": "ng build --watch --configuration development",
