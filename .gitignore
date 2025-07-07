@@ -41,5 +41,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Temporary backup files (created during build process)
+*.backup
+docs/*.backup
+
 # Keep docs folder for GitHub Pages
 !/docs
