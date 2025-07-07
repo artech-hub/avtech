@@ -17,9 +17,9 @@ export interface SEOData {
 })
 export class SeoService {
   private readonly defaultSEO: SEOData = {
-    title: 'AvTech Company - Web Development, Mobile Apps, Cloud Solutions & Digital Marketing Services',
-    description: 'Professional web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting services. Transform your business with our expert technology solutions.',
-    keywords: 'web development, mobile app development, cloud solutions, digital marketing, UI UX design, IT consulting, software development, responsive websites, mobile applications, cloud computing, SEO services, digital transformation, technology consulting',
+    title: 'AvTech Company - Affordable Web Development, Mobile Apps & Tech Solutions for Students, Colleges & Companies',
+    description: 'Get professional web development, mobile app development, and custom software solutions at minimum cost. Perfect for students, colleges, and companies seeking affordable technology services with expert quality.',
+    keywords: 'affordable web development, cheap mobile app development, student web development services, college technology solutions, budget website development, low cost mobile apps, affordable software development, student project development, college website design, company web solutions, minimum cost tech services, budget mobile development, cheap website design, affordable app development, student-friendly tech services',
     image: 'https://avtechcompany.in/assets/avtech-logo.jpg',
     url: 'https://avtechcompany.in',
     type: 'website',
@@ -105,7 +105,7 @@ export class SeoService {
           "name": "AvTech Company",
           "url": "https://avtechcompany.in",
           "logo": "https://avtechcompany.in/assets/avtech-logo.jpg",
-          "description": "Professional web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting services.",
+          "description": "Affordable web development, mobile app development, and custom software solutions at minimum cost for students, colleges, and companies.",
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "IN"
@@ -120,10 +120,40 @@ export class SeoService {
             "https://twitter.com/avtechcompany",
             "https://linkedin.com/company/avtechcompany"
           ],
-          "offers": {
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Affordable Web Development Services",
+              "description": "Custom web development solutions at minimum cost for students, colleges, and companies",
+              "category": "Web Development",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "Offer",
+              "name": "Budget Mobile App Development",
+              "description": "Professional mobile app development at affordable rates for all types of projects",
+              "category": "Mobile Development",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "Offer",
+              "name": "Student Project Development",
+              "description": "Special rates for student projects and academic requirements",
+              "category": "Student Services",
+              "priceRange": "$"
+            },
+            {
+              "@type": "Offer",
+              "name": "College Technology Solutions",
+              "description": "Comprehensive technology solutions for educational institutions",
+              "category": "Educational Services",
+              "priceRange": "$$"
+            }
+          ],
+          "makesOffer": {
             "@type": "Offer",
-            "name": "Web Development Services",
-            "description": "Custom web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting services."
+            "name": "Affordable Technology Services",
+            "description": "Quality web development, mobile apps, and software solutions at minimum cost"
           }
         };
         break;
@@ -131,12 +161,41 @@ export class SeoService {
         structuredData = {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Web Development Services",
+          "name": "Affordable Web Development & Mobile App Services",
           "provider": {
             "@type": "Organization",
-            "name": "AvTech Company"
+            "name": "AvTech Company",
+            "url": "https://avtechcompany.in"
           },
-          "description": "Professional web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting services."
+          "description": "Professional web development, mobile app development, and custom software solutions at minimum cost for students, colleges, and companies.",
+          "serviceType": [
+            "Web Development",
+            "Mobile App Development",
+            "Software Development",
+            "Student Projects",
+            "College Technology Solutions"
+          ],
+          "areaServed": {
+            "@type": "Place",
+            "name": "India"
+          },
+          "audience": [
+            {
+              "@type": "Audience",
+              "name": "Students",
+              "description": "College and university students needing affordable tech solutions"
+            },
+            {
+              "@type": "Audience",
+              "name": "Educational Institutions",
+              "description": "Colleges and universities seeking technology services"
+            },
+            {
+              "@type": "Audience",
+              "name": "Small Companies",
+              "description": "Companies looking for cost-effective technology solutions"
+            }
+          ]
         };
         break;
     }
@@ -150,54 +209,54 @@ export class SeoService {
   // SEO configurations for different pages
   getHomeSEO(): SEOData {
     return {
-      title: 'AvTech Company - Premier Web Development, Mobile Apps & Cloud Solutions',
-      description: 'Transform your business with AvTech Company\'s expert web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting services. Get cutting-edge technology solutions today.',
-      keywords: 'web development company, mobile app development, cloud solutions, digital marketing agency, UI UX design services, IT consulting, software development, custom web applications, mobile applications, cloud computing services, SEO optimization, digital transformation, technology consulting India',
+      title: 'AvTech Company - Affordable Web Development & Mobile Apps for Students, Colleges & Companies',
+      description: 'Professional web development, mobile app development, and custom software solutions at minimum cost. Specializing in affordable technology services for students, colleges, and companies. Get quality tech solutions without breaking the budget.',
+      keywords: 'affordable web development, cheap mobile app development, student web development, college technology solutions, budget website development, low cost mobile apps, affordable software development, student project development, college website design, company web solutions, minimum cost tech services, budget mobile development, cheap website design, affordable app development, student-friendly tech services, low budget web design, affordable tech solutions, cheap software development, student web design services, college app development',
       url: 'https://avtechcompany.in/'
     };
   }
 
   getServicesSEO(): SEOData {
     return {
-      title: 'Our Services - Web Development, Mobile Apps, Cloud Solutions | AvTech Company',
-      description: 'Explore AvTech Company\'s comprehensive technology services: Custom web development, mobile app development, cloud solutions, digital marketing, UI/UX design, and IT consulting. Professional solutions for your business growth.',
-      keywords: 'web development services, mobile app development services, cloud solutions, digital marketing services, UI UX design, IT consulting services, custom software development, responsive web design, mobile application development, cloud computing, SEO services, digital marketing agency',
+      title: 'Our Affordable Tech Services - Web Development, Mobile Apps, Software Solutions | AvTech Company',
+      description: 'Explore our budget-friendly technology services: Custom web development, mobile app development, software solutions, and digital services at minimum cost. Perfect for students, colleges, and companies seeking quality tech solutions on a budget.',
+      keywords: 'affordable web development services, cheap mobile app development, budget software development, student web design, college app development, low cost tech services, affordable website design, cheap mobile apps, budget web development, student project development, college technology solutions, affordable software solutions, minimum cost web design, budget mobile development, cheap tech services, affordable digital solutions',
       url: 'https://avtechcompany.in/services'
     };
   }
 
   getAboutSEO(): SEOData {
     return {
-      title: 'About AvTech Company - Expert Technology Solutions Provider',
-      description: 'Learn about AvTech Company, a leading provider of web development, mobile app development, cloud solutions, digital marketing, and IT consulting services. Our expert team delivers innovative technology solutions.',
-      keywords: 'about avtech company, technology solutions provider, web development team, mobile app developers, cloud solutions experts, digital marketing professionals, IT consulting firm',
+      title: 'About AvTech Company - Your Affordable Technology Partner for Students, Colleges & Companies',
+      description: 'Learn about AvTech Company, specializing in affordable web development, mobile app development, and custom software solutions. We provide quality technology services at minimum cost for students, colleges, and companies.',
+      keywords: 'about avtech company, affordable tech company, student-friendly web development, college technology partner, budget software development company, cheap web development team, affordable mobile app developers, low cost tech solutions provider',
       url: 'https://avtechcompany.in/about'
     };
   }
 
   getContactSEO(): SEOData {
     return {
-      title: 'Contact AvTech Company - Get Your Free Technology Consultation',
-      description: 'Contact AvTech Company for web development, mobile app development, cloud solutions, digital marketing, and IT consulting services. Get your free consultation today and transform your business.',
-      keywords: 'contact avtech company, web development consultation, mobile app development quote, cloud solutions consultation, digital marketing services, IT consulting, free technology consultation',
+      title: 'Contact AvTech Company - Get Free Quote for Affordable Web Development & Mobile Apps',
+      description: 'Contact AvTech Company for affordable web development, mobile app development, and custom software solutions. Get your free quote today for budget-friendly technology services for students, colleges, and companies.',
+      keywords: 'contact avtech company, free web development quote, affordable mobile app quote, budget software development consultation, cheap web design quote, low cost app development, student web development services, college technology solutions, affordable tech consultation',
       url: 'https://avtechcompany.in/contact'
     };
   }
 
   getBlogSEO(): SEOData {
     return {
-      title: 'Technology Blog - Web Development, Mobile Apps & Digital Marketing Tips',
-      description: 'Stay updated with the latest trends in web development, mobile app development, cloud solutions, digital marketing, and technology. Read expert insights and tips from AvTech Company.',
-      keywords: 'technology blog, web development blog, mobile app development tips, cloud solutions insights, digital marketing trends, technology news, software development articles',
+      title: 'Tech Blog - Affordable Web Development Tips, Mobile App Guides & Budget Tech Solutions',
+      description: 'Stay updated with affordable web development tips, mobile app development guides, and budget-friendly technology solutions. Expert insights for students, colleges, and companies seeking cost-effective tech advice.',
+      keywords: 'affordable web development blog, cheap mobile app tips, budget tech solutions, student web development guides, college technology articles, low cost app development tips, affordable software development blog, budget web design tips',
       url: 'https://avtechcompany.in/blog'
     };
   }
 
   getCareerSEO(): SEOData {
     return {
-      title: 'Careers at AvTech Company - Join Our Technology Team',
-      description: 'Join AvTech Company and build your career in web development, mobile app development, cloud solutions, digital marketing, and IT consulting. Explore exciting opportunities with our growing team.',
-      keywords: 'careers avtech company, web developer jobs, mobile app developer jobs, cloud solutions jobs, digital marketing jobs, IT consulting careers, technology jobs, software developer positions',
+      title: 'Careers at AvTech Company - Join Our Affordable Tech Solutions Team',
+      description: 'Join AvTech Company and build your career in affordable web development, mobile app development, and budget-friendly technology solutions. Help students, colleges, and companies achieve their tech goals affordably.',
+      keywords: 'careers avtech company, affordable web developer jobs, budget tech company careers, student-friendly tech jobs, college technology careers, affordable software developer positions, cheap web development jobs',
       url: 'https://avtechcompany.in/career'
     };
   }
